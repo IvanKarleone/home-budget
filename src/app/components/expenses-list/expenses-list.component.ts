@@ -4,7 +4,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-expenses-list',
   standalone: true,
   templateUrl: './expenses-list.component.html',
-  styles: ``,
+  styles: `
+    :host {
+      display: block;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesListComponent {}
