@@ -5,13 +5,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "ng test"
-    }
+    "test": "ng test --watch=false",
+    "lint-staged": "lint-staged",
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,ts,css,scss,html,md}": "prettier --write"
