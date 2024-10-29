@@ -1,0 +1,7 @@
+<button class="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10" (click)="toggle()">
+  @if (darkModeService.isOnDarkMode()) {
+    <img src="svg/moon.svg" alt="dark-mode" title="dark-mode" />
+  } @else {
+    <img src="svg/sun.svg" alt="light-mode" title="light-mode" />
+  }
+</button>
