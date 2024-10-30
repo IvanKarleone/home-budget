@@ -1,5 +1,7 @@
-<h1 class="sr-only">Expenses</h1>
+<tui-root [attr.tuiTheme]="isOnDarkMode() ? 'dark' : 'light'">
+  <h1 class="sr-only">Expenses</h1>
 
-<app-dark-mode-button (darkModeChange)="isOnDarkMode.set($event)"></app-dark-mode-button>
+  <app-dark-mode-button (darkModeChange)="isOnDarkMode.set($event)"></app-dark-mode-button>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</tui-root>

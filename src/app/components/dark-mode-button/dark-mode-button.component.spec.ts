@@ -38,24 +38,24 @@ describe('DarkModeButtonComponent', () => {
     expect(darkModeServiceToogleFn).toHaveBeenCalledTimes(1);
   });
 
-  it('should display light-mode img initially', () => {
+  it('should be light theme initially', () => {
     spyOn(darkModeService, 'isOnDarkMode').and.returnValue(false);
 
     fixture.detectChanges();
 
-    const lightModeImgTitle = debugElement.query(By.css('img')).attributes['title'];
+    const themeBtnTitle = debugElement.query(By.css('button')).attributes['title'];
 
-    expect(lightModeImgTitle).toContain('light');
+    expect(themeBtnTitle).toContain('light');
   });
 
-  it('should display dark-mode img after #click() button', () => {
+  it('should be dark theme after #click() button', () => {
     debugElement.query(By.css('button')).triggerEventHandler('click');
     spyOn(darkModeService, 'isOnDarkMode').and.returnValue(true);
 
     fixture.detectChanges();
 
-    const darkModeImgTitle = debugElement.query(By.css('img')).attributes['title'];
+    const themeBtnTitle = debugElement.query(By.css('button')).attributes['title'];
 
-    expect(darkModeImgTitle).toContain('dark');
+    expect(themeBtnTitle).toContain('dark');
   });
 });

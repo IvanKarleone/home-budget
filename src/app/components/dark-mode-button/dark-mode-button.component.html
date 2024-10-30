@@ -1,7 +1,11 @@
-<button class="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10" (click)="toggle()">
-  @if (darkModeService.isOnDarkMode()) {
-    <img src="svg/moon.svg" alt="dark-mode" title="dark-mode" />
-  } @else {
-    <img src="svg/sun.svg" alt="light-mode" title="light-mode" />
-  }
+<button
+  tuiIconButton
+  type="button"
+  [title]="darkModeService.isOnDarkMode() ? 'dark-theme' : 'light-theme'"
+  [style.border-radius.%]="100"
+  appearance="outline"
+  [iconStart]="darkModeService.isOnDarkMode() ? '@tui.sun' : '@tui.moon-star'"
+  [size]="(breakpoint$ | async) === 'mobile' ? 's' : 'm'"
+  (click)="toggle()">
+  Theme
 </button>
