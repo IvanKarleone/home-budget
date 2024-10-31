@@ -1,3 +1,36 @@
-<h2>Мои расходы</h2>
+<h2 class="text-lg font-medium md:text-xl lg:text-2xl">My expenses</h2>
 
-<button>Добавить</button>
+<p class="text-sm text-[--tui-text-secondary] md:text-base lg:text-lg">
+  You have not had expenses yet...
+</p>
+
+<button
+  tuiIconButton
+  type="button"
+  [style.border-radius.%]="100"
+  title="Add expense"
+  appearance="outline"
+  size="m"
+  iconStart="@tui.plus"
+  (click)="isOpenedDialog = true">
+  Add expense
+</button>
+
+<ng-template
+  let-observer
+  [tuiDialogOptions]="{ label: 'New expense', size: 's' }"
+  [(tuiDialog)]="isOpenedDialog">
+  <form
+    class="flex flex-col gap-y-5 pt-5"
+    [formGroup]="expenseForm"
+    (ngSubmit)="observer.complete()">
+    <tui-input-number formControlName="amount" tuiAutoFocus>Type an amount</tui-input-number>
+
+    <tui-select formControlName="currency">
+      Currency
+      <tui-data-list-wrapper *tuiDataList [items]="currencies"></tui-data-list-wrapper>
+    </tui-select>
+
+    <button class="self-start" tuiButton type="submit" size="m">Submit</button>
+  </form>
+</ng-template>
