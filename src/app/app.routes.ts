@@ -1,23 +1,22 @@
 import { Routes } from '@angular/router';
-import { EXPENSES_LIST_ROUTES } from './consts/expenses-list-routes.const';
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: EXPENSES_LIST_ROUTES.root,
+    redirectTo: 'user',
   },
   {
-    path: EXPENSES_LIST_ROUTES.root,
-    loadComponent: () =>
-      import('./components/expenses-list/expenses-list.component').then(
-        m => m.ExpensesListComponent
-      ),
+    path: 'user',
+    loadChildren: () => import('./pages/user/user.routes').then(m => m.routes),
   },
-
+  {
+    path: 'login',
+    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
+  },
   {
     path: '**',
     loadComponent: () =>
-      import('./components/not-found/not-found.component').then(m => m.NotFoundComponent),
+      import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent),
   },
 ];

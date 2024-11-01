@@ -1,12 +1,13 @@
-import { TuiRoot } from '@taiga-ui/core';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DarkModeButtonComponent } from './components/dark-mode-button/dark-mode-button.component';
+import { TuiRoot } from '@taiga-ui/core';
+import { TTheme } from './core/models/theme.type';
+import { ThemeButtonComponent } from './core/components/theme-button/component/theme-button.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TuiRoot, DarkModeButtonComponent],
+  imports: [RouterOutlet, TuiRoot, ThemeButtonComponent],
   templateUrl: './app.component.html',
   styles: `
     :host {
@@ -16,5 +17,5 @@ import { DarkModeButtonComponent } from './components/dark-mode-button/dark-mode
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  isOnDarkMode = signal(false);
+  readonly theme = signal<TTheme>('light');
 }

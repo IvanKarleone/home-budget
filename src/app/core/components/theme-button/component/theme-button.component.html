@@ -1,0 +1,11 @@
+<button
+  tuiIconButton
+  type="button"
+  [title]="themeService.theme() + '-theme'"
+  [style.border-radius.%]="100"
+  appearance="outline"
+  [iconStart]="themeService.theme() === 'dark' ? '@tui.sun' : '@tui.moon-star'"
+  [size]="(breakpoint$ | async) === 'mobile' ? 's' : 'm'"
+  (click)="toggle()">
+  Theme
+</button>

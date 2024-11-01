@@ -7,6 +7,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
     "lint-staged": "lint-staged",
+    "analyze-circular": "madge --circular --extensions ts src",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -45,6 +46,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.2.10",
+    "madge": "^8.0.0",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
