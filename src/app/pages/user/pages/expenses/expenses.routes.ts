@@ -13,6 +13,6 @@ export const routes: Routes = [
   },
   {
     path: ':id',
-    loadComponent: () => import('./pages/certain/expense.component').then(m => m.ExpenseComponent),
+    loadComponent: () => import('./pages/expense/expense.component').then(m => m.ExpenseComponent),
   },
 ];
