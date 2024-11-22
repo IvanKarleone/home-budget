@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { ThemeService } from './theme.service';
 import { InternalStorageService, TInternalStorage } from '@shared/api';
+
+import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
   let themeService: ThemeService;
@@ -10,8 +11,12 @@ describe('ThemeService', () => {
       getItem(key: string) {
         return key;
       },
-      setItem(key: unknown, value: unknown) {},
-      removeItem(key: unknown) {},
+      setItem(key: unknown, value: unknown) {
+        return { key, value };
+      },
+      removeItem(key: unknown) {
+        return key;
+      },
     };
 
     TestBed.configureTestingModule({

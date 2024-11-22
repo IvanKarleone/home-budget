@@ -1,5 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { InternalStorageService } from '@shared/api';
+
 import { TTheme } from './theme.type';
 
 @Injectable()

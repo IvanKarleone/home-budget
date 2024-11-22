@@ -1,8 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { ThemeButtonComponent } from './theme-button.component';
 import { ThemeService } from '@features/theme/model/theme.service';
+
+import { ThemeButtonComponent } from './theme-button.component';
 
 describe('ThemeButtonComponent', () => {
   let fixture: ComponentFixture<ThemeButtonComponent>;
