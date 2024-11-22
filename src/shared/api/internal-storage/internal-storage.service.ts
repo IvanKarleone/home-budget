@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { TInternalStorage } from '@shared/model';
+
 import { INTERNAL_STORAGE_KEY } from './internal-storage-key.token';
+import { TInternalStorage } from './internal-storage.type';
 
 @Injectable()
 export class InternalStorageService implements TInternalStorage {

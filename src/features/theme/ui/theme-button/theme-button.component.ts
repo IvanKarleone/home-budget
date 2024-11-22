@@ -1,9 +1,13 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { TuiBreakpointService, TuiButton } from '@taiga-ui/core';
 import { AsyncPipe } from '@angular/common';
-import { INTERNAL_STORAGE_KEY, InternalStorageService } from '@shared/api';
-import { ThemeService, TTheme } from '@shared/model';
-import { InternalLocalStorageService } from '@shared/api/internal-local-storage/internal-local-storage.service';
+import {
+  INTERNAL_STORAGE_KEY,
+  InternalLocalStorageService,
+  InternalStorageService,
+} from '@shared/api';
+import { ThemeService } from '@features/theme/model/theme.service';
+import { TTheme } from '@features/theme/model/theme.type';
 
 @Component({
   selector: 'app-theme-button',

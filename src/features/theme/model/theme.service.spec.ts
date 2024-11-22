@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ThemeService } from './theme.service';
-import { InternalStorageService } from '@shared/api';
-import { TInternalStorage } from '..';
+import { InternalStorageService, TInternalStorage } from '@shared/api';
 
 describe('ThemeService', () => {
   let themeService: ThemeService;

@@ -1,6 +1,6 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
-import { TTheme } from './theme.type';
+import { inject, Injectable, signal } from '@angular/core';
 import { InternalStorageService } from '@shared/api';
+import { TTheme } from './theme.type';
 
 @Injectable()
 export class ThemeService {

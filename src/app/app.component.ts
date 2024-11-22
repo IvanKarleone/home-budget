@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ThemeButtonComponent, TTheme } from '@features/theme';
 import { TuiRoot } from '@taiga-ui/core';
-import { ThemeButtonComponent } from '@shared/ui';
-import { TTheme } from '@shared/model';
 
 @Component({
   selector: 'app-root',
