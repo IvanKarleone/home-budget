@@ -1,1 +1,3 @@
-export type TInternalStorage = Pick<Storage, 'getItem' | 'removeItem' | 'setItem'>;
+export type InternalStorage = Pick<Storage, 'getItem' | 'removeItem' | 'setItem'> & {
+  getObjectItem: () => unknown | null;
+};

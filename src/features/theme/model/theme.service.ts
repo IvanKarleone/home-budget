@@ -1,13 +1,13 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { InternalStorageService } from '@shared/api';
 
-import { TTheme } from './theme.type';
+import { Theme } from './theme.type';
 
 @Injectable()
 export class ThemeService {
   private readonly internalStorageService = inject(InternalStorageService);
 
-  private _theme = signal<TTheme>(
+  private _theme = signal<Theme>(
     this.internalStorageService.getItem() === 'dark' ? 'dark' : 'light'
   );
   readonly theme = this._theme.asReadonly();

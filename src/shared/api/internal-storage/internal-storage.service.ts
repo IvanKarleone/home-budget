@@ -1,15 +1,21 @@
 import { inject, Injectable } from '@angular/core';
 
-import { TInternalStorage } from './internal-storage.type';
+import { InternalStorage } from './internal-storage.type';
 import { INTERNAL_STORAGE_KEY } from './internal-storage-key.token';
 
 @Injectable()
-export class InternalStorageService implements TInternalStorage {
+export class InternalStorageService implements InternalStorage {
   protected readonly storage!: Storage;
   protected readonly key = inject(INTERNAL_STORAGE_KEY);
 
   getItem(): string | null {
     return this.storage.getItem(this.key);
+  }
+
+  getObjectItem<T>(): T | null {
+    const objectItem = this.storage.getItem(this.key);
+
+    return objectItem ? (JSON.parse(objectItem) as T) : null;
   }
 
   removeItem(): void {

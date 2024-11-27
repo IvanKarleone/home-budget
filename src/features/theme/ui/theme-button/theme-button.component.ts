@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { ThemeService } from '@features/theme/model/theme.service';
-import { TTheme } from '@features/theme/model/theme.type';
+import { Theme } from '@features/theme/model/theme.type';
 import {
   INTERNAL_STORAGE_KEY,
   InternalLocalStorageService,
@@ -10,7 +10,7 @@ import {
 import { TuiBreakpointService, TuiButton } from '@taiga-ui/core';
 
 @Component({
-  selector: 'app-theme-button',
+  selector: 'hb-theme-button',
   standalone: true,
   imports: [AsyncPipe, TuiButton],
   templateUrl: './theme-button.component.html',
@@ -39,7 +39,7 @@ export class ThemeButtonComponent implements AfterViewInit {
   readonly themeService = inject(ThemeService);
   readonly breakpoint$ = inject(TuiBreakpointService);
 
-  readonly themeChange = output<TTheme>();
+  readonly themeChange = output<Theme>();
 
   ngAfterViewInit(): void {
     this.themeChange.emit(this.themeService.theme());

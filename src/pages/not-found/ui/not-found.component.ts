@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-not-found',
+  selector: 'hb-not-found',
   standalone: true,
   templateUrl: './not-found.component.html',
   styles: `

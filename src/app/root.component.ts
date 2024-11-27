@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ThemeButtonComponent, TTheme } from '@features/theme';
+import { Theme, ThemeButtonComponent } from '@features/theme';
 import { TuiRoot } from '@taiga-ui/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'hb-root',
   standalone: true,
   imports: [RouterOutlet, TuiRoot, ThemeButtonComponent],
-  templateUrl: './app.component.html',
+  templateUrl: './root.component.html',
   styles: `
     :host {
       display: block;
@@ -15,6 +15,6 @@ import { TuiRoot } from '@taiga-ui/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  readonly theme = signal<TTheme>('light');
+export class RootComponent {
+  readonly theme = signal<Theme>('light');
 }

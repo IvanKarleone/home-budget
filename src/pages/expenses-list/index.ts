@@ -1,1 +1,1 @@
-export { ExpensesListComponent } from './ui/expenses-list.component';
+export { ExpensesListComponent } from './ui/expenses-list/expenses-list.component';

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { InternalStorageService, TInternalStorage } from '@shared/api';
+import { InternalStorage, InternalStorageService } from '@shared/api';
 
 import { ThemeService } from './theme.service';
 
@@ -7,9 +7,12 @@ describe('ThemeService', () => {
   let themeService: ThemeService;
 
   beforeEach(() => {
-    const internalStorage: TInternalStorage = {
+    const internalStorage: InternalStorage = {
       getItem(key: string) {
         return key;
+      },
+      getObjectItem() {
+        return;
       },
       setItem(key: unknown, value: unknown) {
         return { key, value };

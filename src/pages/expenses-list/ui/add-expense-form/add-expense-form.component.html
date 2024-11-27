@@ -1,0 +1,59 @@
+@let formControlSize = (isMobileBreakpoint$ | async) ? 'm' : 'l';
+
+<button
+  tuiIconButton
+  type="button"
+  [style.border-radius.%]="100"
+  title="Add expense"
+  appearance="outline"
+  size="m"
+  iconStart="@tui.plus"
+  (click)="isOpenedDialog = true">
+  Add expense
+</button>
+
+<ng-template
+  let-observer
+  [tuiDialogOptions]="{ label: 'Add expense', size: 'm' }"
+  [tuiDialog]="isOpenedDialog"
+  (tuiDialogChange)="afterCloseDialog()">
+  <form
+    class="flex flex-col gap-y-5 pt-5"
+    [formGroup]="addExpenseForm.form"
+    (ngSubmit)="submit(); observer.complete()">
+    <div>
+      <tui-input-number formControlName="amount" [tuiTextfieldSize]="formControlSize" tuiAutoFocus>
+        Type an amount
+      </tui-input-number>
+
+      <tui-error formControlName="amount" [error]="[] | tuiFieldError | async"> </tui-error>
+    </div>
+
+    <div>
+      <tui-input-date formControlName="date" [tuiTextfieldSize]="formControlSize">
+        Choose a date
+      </tui-input-date>
+
+      <tui-error formControlName="date" [error]="[] | tuiFieldError | async"> </tui-error>
+    </div>
+
+    <tui-select formControlName="currency" [tuiTextfieldSize]="formControlSize">
+      Currency
+      <tui-data-list-wrapper *tuiDataList [items]="currencies"> </tui-data-list-wrapper>
+    </tui-select>
+
+    <tui-select formControlName="category" [tuiTextfieldSize]="formControlSize">
+      Category
+      <tui-data-list-wrapper *tuiDataList [items]="categories"></tui-data-list-wrapper>
+    </tui-select>
+
+    <button
+      class="self-start"
+      tuiButton
+      type="submit"
+      size="m"
+      [disabled]="addExpenseForm.form.invalid">
+      Submit
+    </button>
+  </form>
+</ng-template>
