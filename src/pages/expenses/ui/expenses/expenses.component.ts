@@ -1,18 +1,18 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { IExpense } from '@pages/expenses-list/model/expense/expense.interface';
 import { provideLocalInternalStorage } from '@shared/api';
 import { TuiAlertService, TuiIcon } from '@taiga-ui/core';
 import { take } from 'rxjs';
 
-import { ExpensesListInternalStorageService } from '../../model/internal-storage/expenses-list-internal-storage.service';
+import { IExpense } from '../../model/expense/expense.interface';
+import { ExpensesInternalStorageService } from '../../model/expenses-internal-storage/expenses-internal-storage.service';
 import { AddExpenseFormComponent } from '../add-expense-form/add-expense-form.component';
 import { ExpenseCategoryColorPipe } from '../expense-category-color/expense-category-color.pipe';
 import { ExpenseCategoryIconPipe } from '../expense-category-icon/expense-category-icon.pipe';
 import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-currency-sign.pipe';
 
 @Component({
-  selector: 'hb-expenses-list',
+  selector: 'hb-expenses',
   standalone: true,
   imports: [
     NgClass,
@@ -22,7 +22,7 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
     ExpenseCategoryColorPipe,
     AddExpenseFormComponent,
   ],
-  templateUrl: './expenses-list.component.html',
+  templateUrl: './expenses.component.html',
   styles: `
     :host {
       display: flex;
@@ -31,16 +31,16 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
       row-gap: 16px;
     }
   `,
-  providers: [ExpensesListInternalStorageService, ...provideLocalInternalStorage('expenses')],
+  providers: [ExpensesInternalStorageService, ...provideLocalInternalStorage('expenses')],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExpensesListComponent {
-  protected readonly expensesListInternalStorage = inject(ExpensesListInternalStorageService);
+export class ExpensesComponent {
+  protected readonly expensesInternalStorage = inject(ExpensesInternalStorageService);
 
   private readonly alerts = inject(TuiAlertService);
 
   addExpense(expense: IExpense): void {
-    this.expensesListInternalStorage.addExpense(expense);
+    this.expensesInternalStorage.addExpense(expense);
 
     this.alerts
       .open(

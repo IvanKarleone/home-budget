@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ExpenseCategory } from '@pages/expenses-list/model/expense/expense-category.types';
+
+import { ExpenseCategory } from '../../model/expense/expense-category.types';
 
 @Pipe({
   name: 'expenseCategoryColor',

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TuiDay } from '@taiga-ui/cdk';
 
 import { IExpense } from '../expense/expense.interface';
 import { EXPENSE_CATEGORIES, ExpenseCategory } from '../expense/expense-category.types';
@@ -12,7 +13,7 @@ type SimpleForm<T extends object> = {
 
 type AddExpenseForm = Omit<SimpleForm<IExpense>, 'amount' | 'date'> & {
   amount: FormControl<number | null>;
-  date: FormControl<Date | null>;
+  date: FormControl<TuiDay | null>;
 };
 
 @Injectable()
@@ -32,7 +33,7 @@ export class AddExpenseFormService {
 
   getValue(): IExpense {
     const amount = this.form.getRawValue().amount ?? 0;
-    const date = this.form.getRawValue().date ?? new Date();
+    const date = this.form.getRawValue().date ?? new TuiDay(2000, 0, 1);
 
     return {
       ...this.form.getRawValue(),

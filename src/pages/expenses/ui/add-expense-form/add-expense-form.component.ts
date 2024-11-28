@@ -1,7 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { IExpense } from '@pages/expenses-list/model/expense/expense.interface';
 import { TuiAutoFocus } from '@taiga-ui/cdk';
 import { TuiBreakpointService, TuiButton, TuiDialog, TuiError } from '@taiga-ui/core';
 import { TuiDataListWrapper, TuiFieldErrorPipe } from '@taiga-ui/kit';
@@ -14,6 +13,7 @@ import {
 import { map } from 'rxjs';
 
 import { AddExpenseFormService } from '../../model/add-expense-form/add-expense-form.service';
+import { IExpense } from '../../model/expense/expense.interface';
 import { EXPENSE_CATEGORIES } from '../../model/expense/expense-category.types';
 import { EXPENSE_CURRENCIES } from '../../model/expense/expense-currency.types';
 
