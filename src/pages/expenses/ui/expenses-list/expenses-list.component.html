@@ -1,0 +1,22 @@
+@if (expenses().length) {
+  <ul class="flex flex-col gap-3">
+    @for (expense of expenses(); track $index) {
+      <li
+        class="flex w-full justify-between rounded-md border-2 border-solid border-[--tui-border-normal] px-2 py-3 text-sm font-medium lg:text-base">
+        <div class="flex items-center" [ngClass]="expense.category | expenseCategoryColor">
+          <tui-icon [icon]="expense.category | expenseCategoryIcon" class="h-5 w-5 lg:h-6 lg:w-6" />
+          &nbsp;
+          <span>{{ expense.category }}</span>
+        </div>
+        <div>
+          <span>{{ expense.amount }}</span>
+          <span>{{ expense.currency | expenseCurrencySign }}</span>
+        </div>
+      </li>
+    }
+  </ul>
+} @else {
+  <p class="text-center text-sm text-[--tui-text-secondary] md:text-base lg:text-lg">
+    You have not had expenses yet...
+  </p>
+}
