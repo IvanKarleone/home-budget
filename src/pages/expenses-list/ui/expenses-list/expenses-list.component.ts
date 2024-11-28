@@ -1,11 +1,7 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { IExpense } from '@pages/expenses-list/model/expense/expense.interface';
-import {
-  INTERNAL_STORAGE_KEY,
-  InternalLocalStorageService,
-  InternalStorageService,
-} from '@shared/api';
+import { provideLocalInternalStorage } from '@shared/api';
 import { TuiAlertService, TuiIcon } from '@taiga-ui/core';
 import { take } from 'rxjs';
 
@@ -35,17 +31,7 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
       row-gap: 16px;
     }
   `,
-  providers: [
-    ExpensesListInternalStorageService,
-    {
-      provide: INTERNAL_STORAGE_KEY,
-      useValue: 'expenses-list',
-    },
-    {
-      provide: InternalStorageService,
-      useClass: InternalLocalStorageService,
-    },
-  ],
+  providers: [ExpensesListInternalStorageService, ...provideLocalInternalStorage('expenses')],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesListComponent {

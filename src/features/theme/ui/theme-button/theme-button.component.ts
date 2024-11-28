@@ -2,11 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { ThemeService } from '@features/theme/model/theme.service';
 import { Theme } from '@features/theme/model/theme.type';
-import {
-  INTERNAL_STORAGE_KEY,
-  InternalLocalStorageService,
-  InternalStorageService,
-} from '@shared/api';
+import { provideLocalInternalStorage } from '@shared/api';
 import { TuiBreakpointService, TuiButton } from '@taiga-ui/core';
 
 @Component({
@@ -23,17 +19,7 @@ import { TuiBreakpointService, TuiButton } from '@taiga-ui/core';
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    ThemeService,
-    {
-      provide: INTERNAL_STORAGE_KEY,
-      useValue: 'theme',
-    },
-    {
-      provide: InternalStorageService,
-      useClass: InternalLocalStorageService,
-    },
-  ],
+  providers: [ThemeService, ...provideLocalInternalStorage('theme')],
 })
 export class ThemeButtonComponent implements AfterViewInit {
   readonly themeService = inject(ThemeService);
