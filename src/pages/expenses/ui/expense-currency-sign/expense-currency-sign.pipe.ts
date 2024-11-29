@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { ExpenseCurrency } from '../../model/expense/expense-currency.types';
+import type { ExpenseCurrency } from '../../model/expense/expense-currency.types';
 
 @Pipe({
   name: 'expenseCurrencySign',

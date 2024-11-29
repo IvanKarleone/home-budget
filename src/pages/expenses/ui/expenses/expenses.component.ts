@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { provideLocalInternalStorage } from '@shared/api';
 import { TuiAlertService } from '@taiga-ui/core';
 import { take } from 'rxjs';
 
-import { IExpense } from '../../model/expense/expense.interface';
-import { ExpensesInternalStorageService } from '../../model/expenses-internal-storage/expenses-internal-storage.service';
+import { ExpensesStorageService } from '../../api/expenses-storage/expenses-storage.service';
+import type { IExpense } from '../../model/expense/expense.interface';
 import { AddExpenseFormComponent } from '../add-expense-form/add-expense-form.component';
 import { ExpensesListComponent } from '../expenses-list/expenses-list.component';
 
@@ -21,16 +20,16 @@ import { ExpensesListComponent } from '../expenses-list/expenses-list.component'
       row-gap: 16px;
     }
   `,
-  providers: [ExpensesInternalStorageService, ...provideLocalInternalStorage('expenses')],
+  providers: [ExpensesStorageService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesComponent {
-  protected readonly expensesInternalStorage = inject(ExpensesInternalStorageService);
+  protected readonly expensesStorage = inject(ExpensesStorageService);
 
   private readonly alerts = inject(TuiAlertService);
 
   addExpense(expense: IExpense): void {
-    this.expensesInternalStorage.addExpense(expense);
+    this.expensesStorage.addExpense(expense);
 
     this.alerts
       .open(

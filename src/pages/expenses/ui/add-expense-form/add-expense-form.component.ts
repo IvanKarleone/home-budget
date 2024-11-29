@@ -13,7 +13,7 @@ import {
 import { map } from 'rxjs';
 
 import { AddExpenseFormService } from '../../model/add-expense-form/add-expense-form.service';
-import { IExpense } from '../../model/expense/expense.interface';
+import type { IExpense } from '../../model/expense/expense.interface';
 import { EXPENSE_CATEGORIES } from '../../model/expense/expense-category.types';
 import { EXPENSE_CURRENCIES } from '../../model/expense/expense-currency.types';
 

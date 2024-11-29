@@ -1,15 +1,15 @@
 // import { TestBed } from '@angular/core/testing';
 // import { INTERNAL_STORAGE_KEY, InternalStorageService } from '@shared/api';
 
-// import { ExpensesInternalStorageService } from './expenses-internal-storage.service';
+// import { ExpensesStorageService } from './expenses-internal-storage.service';
 
-// describe('ExpensesInternalStorageService', () => {
-//   // let service: ExpensesInternalStorageService;
+// describe('ExpensesStorageService', () => {
+//   // let service: ExpensesStorageService;
 
 //   beforeEach(() => {
 //     TestBed.configureTestingModule({
 //       providers: [
-//         ExpensesInternalStorageService,
+//         ExpensesStorageService,
 //         InternalStorageService,
 //         {
 //           provide: INTERNAL_STORAGE_KEY,
@@ -17,7 +17,7 @@
 //         },
 //       ],
 //     });
-//     // service = TestBed.inject(ExpensesInternalStorageService);
+//     // service = TestBed.inject(ExpensesStorageService);
 //   });
 
 //   // TODO

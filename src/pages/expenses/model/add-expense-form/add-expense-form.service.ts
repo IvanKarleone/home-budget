@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TuiDay } from '@taiga-ui/cdk';
 
-import { IExpense } from '../expense/expense.interface';
-import { EXPENSE_CATEGORIES, ExpenseCategory } from '../expense/expense-category.types';
-import { EXPENSE_CURRENCIES, ExpenseCurrency } from '../expense/expense-currency.types';
+import type { IExpense } from '../expense/expense.interface';
+import type { ExpenseCategory } from '../expense/expense-category.types';
+import { EXPENSE_CATEGORIES } from '../expense/expense-category.types';
+import type { ExpenseCurrency } from '../expense/expense-currency.types';
+import { EXPENSE_CURRENCIES } from '../expense/expense-currency.types';
 
 // TODO move to shared
 type SimpleForm<T extends object> = {

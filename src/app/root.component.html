@@ -1,12 +1,9 @@
 <tui-root [attr.tuiTheme]="theme()">
   <h1 class="sr-only">Home budget</h1>
 
-  <!-- TODO create header later -->
-  <header class="h-12"></header>
+  <hb-menu></hb-menu>
 
-  <hb-theme-button (themeChange)="theme.set($event)"></hb-theme-button>
-
-  <div class="pb-5 pl-5 pr-5">
+  <main class="px-4 pb-6">
     <router-outlet></router-outlet>
-  </div>
+  </main>
 </tui-root>

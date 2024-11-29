@@ -1,0 +1,12 @@
+@let isDarkMode = themeStorageService.isDarkMode();
+
+<label class="sr-only" for="theme">Theme</label>
+<input
+  tuiSwitch
+  id="theme"
+  type="checkbox"
+  [title]="isDarkMode ? 'dark-theme' : 'light-theme'"
+  [ngModel]="isDarkMode"
+  (ngModelChange)="toggle()" />
+
+<tui-icon [icon]="isDarkMode ? '@tui.moon-star' : '@tui.sun'" />

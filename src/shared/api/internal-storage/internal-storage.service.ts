@@ -1,32 +1,46 @@
-import { inject, Injectable } from '@angular/core';
+type InternalStorage = Pick<Storage, 'getItem' | 'removeItem' | 'setItem' | 'clear'> & {
+  getObjectItem: (key: string) => unknown | null;
+  setObjectItem: (item: object, key: string) => void;
+};
 
-import { InternalStorage } from './internal-storage.type';
-import { INTERNAL_STORAGE_KEY } from './internal-storage-key.token';
-
-@Injectable()
 export class InternalStorageService implements InternalStorage {
-  protected readonly storage!: Storage;
-  protected readonly key = inject(INTERNAL_STORAGE_KEY);
+  protected readonly storage: Storage;
 
-  getItem(): string | null {
-    return this.storage.getItem(this.key);
+  private readonly keyPrefix = 'home-budget';
+
+  constructor(storage: Storage) {
+    this.storage = storage;
   }
 
-  getObjectItem<T>(): T | null {
-    const objectItem = this.storage.getItem(this.key);
+  getItem(key: string): string | null {
+    return this.storage.getItem(this.getKey(key));
+  }
+
+  getObjectItem<T>(key: string): T | null {
+    const objectItem = this.storage.getItem(this.getKey(key));
 
     return objectItem ? (JSON.parse(objectItem) as T) : null;
   }
 
-  removeItem(): void {
-    this.storage.removeItem(this.key);
+  setItem(item: number | string | boolean, key: string): void {
+    this.storage.setItem(this.getKey(key), `${item}`);
   }
 
-  setItem(value: unknown): void {
-    if (typeof value === 'object') {
-      value = JSON.stringify(value);
-    }
+  setObjectItem(item: object, key: string): void {
+    const jsonItem = JSON.stringify(item);
 
-    this.storage.setItem(this.key, `${value}`);
+    this.storage.setItem(this.getKey(key), jsonItem);
+  }
+
+  removeItem(key: string): void {
+    this.storage.removeItem(this.getKey(key));
+  }
+
+  clear(): void {
+    this.storage.clear();
+  }
+
+  private getKey(key: string): string {
+    return `${this.keyPrefix}-${key}`;
   }
 }
