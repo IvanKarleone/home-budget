@@ -2,56 +2,12 @@
   <nav>
     <ul class="flex gap-2">
       <li>
-        <!-- TODO create seperate element for links -->
-        <a
-          tuiButton
-          title="expenses"
-          [routerLink]="['user', 'expenses']"
-          routerLinkActive="active"
-          size="m"
-          appearance="flat">
-          Expenses
-        </a>
+        <hb-link title="expenses" [route]="['user', 'expenses']">Expenses</hb-link>
       </li>
       <li>
-        <a
-          tuiButton
-          title="incomes"
-          [routerLink]="['user', 'incomes']"
-          routerLinkActive="active"
-          size="m"
-          appearance="flat">
-          Incomes
-        </a>
+        <hb-link title="incomes" [route]="['user', 'incomes']">Incomes</hb-link>
       </li>
     </ul>
   </nav>
-  <button
-    #btn
-    tuiButton
-    style="border-radius: 100%"
-    type="button"
-    appearance="outline"
-    size="m"
-    iconStart="@tui.user"
-    [tuiDropdown]="dropdown"
-    [tuiAppearanceState]="isOpenedUserMenu ? 'active' : null"
-    tuiDropdownDirection="bottom"
-    [(tuiDropdownOpen)]="isOpenedUserMenu">
-    <span class="sr-only">User</span>
-  </button>
+  <hb-user-avatar />
 </header>
-
-<ng-template #dropdown let-close>
-  <tui-data-list class="w-28">
-    <tui-opt-group>
-      <!-- TODO add page profile -->
-      <a tuiOption type="button" routerLink="/">Profile</a>
-      <hb-theme-switch tuiOption (switchTheme)="close(); btn.blur()" />
-    </tui-opt-group>
-    <tui-opt-group>
-      <!-- TODO add page log-in and log-out -->
-      <a tuiOption type="button" routerLink="/">Log in</a>
-    </tui-opt-group>
-  </tui-data-list>
-</ng-template>
