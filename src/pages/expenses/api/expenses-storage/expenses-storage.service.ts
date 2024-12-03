@@ -1,7 +1,10 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { LocalStorageService } from '@shared/api';
+import { TuiDay } from '@taiga-ui/cdk';
 
 import type { IExpense } from '../../model/expense/expense.interface';
+
+type ExpenseStorageItem = Omit<IExpense, 'date'> & { date: string };
 
 @Injectable()
 export class ExpensesStorageService {
@@ -12,7 +15,10 @@ export class ExpensesStorageService {
   public items = this._items.asReadonly();
 
   constructor() {
-    const initItems = this.storage.getObjectItem<IExpense[]>(this.key) ?? [];
+    const initItems =
+      this.storage
+        .getObjectItem<ExpenseStorageItem[]>(this.key)
+        ?.map(expense => ({ ...expense, date: TuiDay.jsonParse(expense.date) })) ?? [];
 
     this._items.set(initItems);
   }

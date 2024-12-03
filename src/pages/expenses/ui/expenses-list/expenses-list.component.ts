@@ -1,22 +1,12 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IExpense } from '@pages/expenses/model/expense/expense.interface';
-import { TuiIcon } from '@taiga-ui/core';
 
-import { ExpenseCategoryColorPipe } from '../expense-category-color/expense-category-color.pipe';
-import { ExpenseCategoryIconPipe } from '../expense-category-icon/expense-category-icon.pipe';
-import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-currency-sign.pipe';
+import { ExpensesListItemComponent } from '../expenses-list-item/expenses-list-item.component';
 
 @Component({
   selector: 'hb-expenses-list',
   standalone: true,
-  imports: [
-    NgClass,
-    TuiIcon,
-    ExpenseCurrencySignPipe,
-    ExpenseCategoryIconPipe,
-    ExpenseCategoryColorPipe,
-  ],
+  imports: [ExpensesListItemComponent],
   templateUrl: './expenses-list.component.html',
   styles: `
     :host {

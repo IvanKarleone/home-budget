@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { TuiAlertService } from '@taiga-ui/core';
-import { take } from 'rxjs';
+import { ExpensesAlertService } from '@pages/expenses/model/expenses-alert/expenses-alert.service';
 
 import { ExpensesStorageService } from '../../api/expenses-storage/expenses-storage.service';
 import type { IExpense } from '../../model/expense/expense.interface';
@@ -20,26 +19,15 @@ import { ExpensesListComponent } from '../expenses-list/expenses-list.component'
       row-gap: 16px;
     }
   `,
-  providers: [ExpensesStorageService],
+  providers: [ExpensesStorageService, ExpensesAlertService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesComponent {
   protected readonly expensesStorage = inject(ExpensesStorageService);
-
-  private readonly alerts = inject(TuiAlertService);
+  protected readonly expensesAlert = inject(ExpensesAlertService);
 
   addExpense(expense: IExpense): void {
     this.expensesStorage.addExpense(expense);
-
-    this.alerts
-      .open(
-        `<span class="font-medium text-sm">You have added ${expense.amount} ${expense.currency} in your expenses</span>`,
-        {
-          label: 'New expense',
-          appearance: 'positive',
-        }
-      )
-      .pipe(take(1))
-      .subscribe();
+    this.expensesAlert.addExpense(expense.amount, expense.currency);
   }
 }
