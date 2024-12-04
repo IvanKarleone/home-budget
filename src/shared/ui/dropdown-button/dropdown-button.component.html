@@ -1,0 +1,12 @@
+<button
+  tuiButton
+  style="border-radius: 100%"
+  type="button"
+  [title]="title()"
+  appearance="outline"
+  [size]="size()"
+  [iconStart]="icon()"
+  [tuiDropdown]="menu()"
+  tuiDropdownDirection="bottom"
+  [tuiAppearanceState]="isOpenedDropdown ? 'active' : null"
+  [(tuiDropdownOpen)]="isOpenedDropdown"></button>

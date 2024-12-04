@@ -1,28 +1,18 @@
-<button
-  #btn
-  tuiButton
-  style="border-radius: 100%"
-  type="button"
-  appearance="outline"
-  size="m"
-  iconStart="@tui.user"
-  [tuiDropdown]="menu"
-  tuiDropdownDirection="bottom"
-  [tuiAppearanceState]="isOpenedUserMenu ? 'active' : null"
-  [(tuiDropdownOpen)]="isOpenedUserMenu">
-  <span class="sr-only">User</span>
-</button>
+<hb-dropdown-button [menu]="dropdown" icon="user" title="User avatar" />
 
-<ng-template #menu let-close>
+<ng-template #dropdown let-close>
   <tui-data-list class="w-28">
     <tui-opt-group>
       <!-- TODO add page profile -->
-      <a tuiOption type="button" routerLink="/">Profile</a>
-      <hb-theme-switch tuiOption (switchTheme)="close(); btn.blur()" />
+      <a tuiOption routerLink="/">Profile</a>
+      <button tuiOption type="button">
+        <hb-theme-switch (switchTheme)="close()" />
+      </button>
+      <button tuiOption type="button" (click)="close()">Test</button>
     </tui-opt-group>
     <tui-opt-group>
       <!-- TODO add page log-in and log-out -->
-      <a tuiOption type="button" routerLink="/">Log in</a>
+      <a tuiOption routerLink="/">Log in</a>
     </tui-opt-group>
   </tui-data-list>
 </ng-template>
