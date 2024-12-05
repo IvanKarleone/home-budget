@@ -13,7 +13,7 @@ import { TuiButton } from '@taiga-ui/core';
     }
 
     a.active {
-      border-bottom: 1px solid;
+      border-bottom: 2px solid;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }

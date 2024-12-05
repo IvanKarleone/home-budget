@@ -27,7 +27,12 @@ export class ExpensesComponent {
   protected readonly expensesAlert = inject(ExpensesAlertService);
 
   addExpense(expense: IExpense): void {
-    this.expensesStorage.addExpense(expense);
-    this.expensesAlert.addExpense(expense.amount, expense.currency);
+    this.expensesStorage.add(expense);
+    this.expensesAlert.afterAdd(expense.amount, expense.currency);
+  }
+
+  deleteExpense(expenseIndex: number): void {
+    this.expensesStorage.delete(expenseIndex);
+    this.expensesAlert.afterDelete();
   }
 }

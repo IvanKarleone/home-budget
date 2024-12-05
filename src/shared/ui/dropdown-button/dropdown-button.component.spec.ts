@@ -12,6 +12,9 @@ describe('DropdownButtonComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(DropdownButtonComponent);
+
+    fixture.componentRef.setInput('menu', '');
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

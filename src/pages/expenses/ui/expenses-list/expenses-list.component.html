@@ -1,7 +1,7 @@
 @if (expenses().length) {
   <ul class="flex flex-col gap-3">
-    @for (expense of expenses(); track $index) {
-      <hb-expenses-list-item [expense]="expense"></hb-expenses-list-item>
+    @for (expense of expenses(); track $index; let idx = $index) {
+      <hb-expenses-list-item [expense]="expense" (deleteItem)="deleteExpense.emit(idx)" />
     }
   </ul>
 } @else {

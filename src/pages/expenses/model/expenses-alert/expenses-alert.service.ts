@@ -8,15 +8,26 @@ import { ExpenseCurrency } from '../expense/expense-currency.types';
 export class ExpensesAlertService {
   private readonly alerts = inject(TuiAlertService);
 
-  addExpense(amount: number, currency: ExpenseCurrency): void {
+  afterAdd(amount: number, currency: ExpenseCurrency): void {
+    const label = 'Add expense';
+    const content = `You have added ${amount} ${currency} in your expenses`;
+
+    this.openPositive(label, content);
+  }
+
+  afterDelete(): void {
+    const label = 'Delete expense';
+    const content = `You have deleted the expense`;
+
+    this.openPositive(label, content);
+  }
+
+  private openPositive(label: string, content: string): void {
     this.alerts
-      .open(
-        `<span class="font-medium text-sm">You have added ${amount} ${currency} in your expenses</span>`,
-        {
-          label: 'New expense',
-          appearance: 'positive',
-        }
-      )
+      .open(`<span class="font-medium text-sm">${content}</span>`, {
+        label,
+        appearance: 'positive',
+      })
       .pipe(take(1))
       .subscribe();
   }
