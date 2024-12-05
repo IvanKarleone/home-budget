@@ -31,6 +31,11 @@ export class ExpensesComponent {
     this.expensesAlert.afterAdd(expense.amount, expense.currency);
   }
 
+  update(): void {
+    this.expensesStorage.update();
+    this.expensesAlert.afterUpdate();
+  }
+
   deleteExpense(expenseIndex: number): void {
     this.expensesStorage.delete(expenseIndex);
     this.expensesAlert.afterDelete();

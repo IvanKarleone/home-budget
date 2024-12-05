@@ -15,6 +15,10 @@ export class ExpensesAlertService {
     this.openPositive(label, content);
   }
 
+  afterUpdate(): void {
+    console.log('update');
+  }
+
   afterDelete(): void {
     const label = 'Delete expense';
     const content = `You have deleted the expense`;

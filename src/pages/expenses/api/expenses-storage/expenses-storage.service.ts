@@ -20,6 +20,10 @@ export class ExpensesStorageService {
     this.storage.setObjectItem(this.items(), this.key);
   }
 
+  update(): void {
+    console.log('update');
+  }
+
   delete(expenseIndex: number): void {
     this._items.update(items => {
       const itemsAfterDelete = [...items];

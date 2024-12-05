@@ -34,10 +34,11 @@ export class ExpensesListItemComponent {
 
   expense = input.required<IExpense>();
 
+  readonly updateItem = output<void>();
   readonly deleteItem = output<void>();
 
-  edit(): void {
-    console.log('edit');
+  update(): void {
+    this.updateItem.emit();
   }
 
   delete(): void {
