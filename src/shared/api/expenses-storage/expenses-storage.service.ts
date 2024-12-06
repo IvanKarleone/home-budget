@@ -22,8 +22,10 @@ export class ExpensesStorageService {
     this.storage.setObjectItem(this.items(), this.key);
   }
 
-  update(): void {
-    console.log('update');
+  update(expense: IExpense): void {
+    this._items.update(items => items.map(item => (item.id === expense.id ? expense : item)));
+
+    this.storage.setObjectItem(this.items(), this.key);
   }
 
   delete(id: string): void {

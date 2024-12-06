@@ -1,0 +1,5 @@
+<button class="flex w-full outline-none" type="button" (click)="openModalDialog(form)">Edit</button>
+
+<ng-template #form>
+  <hb-expense-form [formValue]="expenseFormValue()" (submitForm)="update($event)"></hb-expense-form>
+</ng-template>

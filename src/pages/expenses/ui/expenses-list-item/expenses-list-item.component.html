@@ -29,7 +29,7 @@
 
 <ng-template #expenseDropdown>
   <tui-data-list class="w-28">
-    <button tuiOption type="button">Edit</button>
+    <hb-update-expense tuiOption [expense]="expense()" />
     <hb-delete-expense tuiOption [id]="expense().id" />
   </tui-data-list>
 </ng-template>

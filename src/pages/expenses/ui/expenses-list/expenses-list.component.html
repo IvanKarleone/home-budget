@@ -1,5 +1,5 @@
 <ul class="flex flex-col gap-3">
-  @for (expense of expenses(); track $index; let idx = $index) {
+  @for (expense of expenses(); track expense.id) {
     <hb-expenses-list-item [expense]="expense" />
   }
 </ul>

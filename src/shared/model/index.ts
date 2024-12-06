@@ -6,4 +6,5 @@ export type { ExpenseCategory } from './expense/expense-category.types';
 export { EXPENSE_CATEGORIES, EXPENSE_CATEGORY } from './expense/expense-category.types';
 export type { ExpenseCurrency } from './expense/expense-currency.types';
 export { EXPENSE_CURRENCIES, EXPENSE_CURRENCY } from './expense/expense-currency.types';
+export type { Form } from './form/form.type';
 export type { Theme } from './theme/theme.type';

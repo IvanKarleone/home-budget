@@ -6,27 +6,25 @@ import {
   type ExpenseCategory,
   type ExpenseCurrency,
 } from '@shared/model';
-import { TuiDay } from '@taiga-ui/cdk';
 
 import type { ExpenseForm, ExpenseFormValue } from './expense-form.type';
 
-export abstract class ExpenseFormService {
-  readonly form: FormGroup<ExpenseForm> = this.init();
+@Injectable()
+export class ExpenseFormService {
+  readonly form = this.init();
 
   getValue(): ExpenseFormValue {
     return this.form.getRawValue();
   }
 
-  protected abstract init(): FormGroup<ExpenseForm>;
-}
+  setValue(formValue: ExpenseFormValue): void {
+    this.form.setValue(formValue);
+  }
 
-@Injectable()
-export class EditExpenseFormService extends ExpenseFormService {
-  // TODO change logic
   protected init(): FormGroup<ExpenseForm> {
     return new FormGroup<ExpenseForm>({
-      amount: new FormControl(1, [Validators.required]),
-      date: new FormControl(new TuiDay(2022, 2, 2), [Validators.required]),
+      amount: new FormControl(null, [Validators.required]),
+      date: new FormControl(null, [Validators.required]),
       currency: new FormControl<ExpenseCurrency>(EXPENSE_CURRENCIES[0], {
         nonNullable: true,
         validators: [Validators.required],

@@ -5,7 +5,6 @@ import { ConfirmDialogService, ExpenseAlertService } from '@shared/model';
 @Component({
   selector: 'hb-delete-expense',
   standalone: true,
-  imports: [],
   templateUrl: './delete-expense.component.html',
   styles: `
     :host {

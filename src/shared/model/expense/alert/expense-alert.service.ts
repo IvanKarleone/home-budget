@@ -18,7 +18,10 @@ export class ExpenseAlertService {
   }
 
   afterUpdate(): void {
-    console.log('update');
+    const label = 'Update expense';
+    const content = `You have updated the expense`;
+
+    this.openPositive(label, content);
   }
 
   afterDelete(): void {

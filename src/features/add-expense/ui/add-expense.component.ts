@@ -1,15 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject, TemplateRef } from '@angular/core';
 import {
   ExpenseFormComponent,
-  ExpenseFormService,
   type ExpenseFormValue,
   mapExpenseFormValueToNewExpense,
 } from '@entities/expense-form';
 import { ExpensesStorageService } from '@shared/api';
 import { ExpenseAlertService, ModalDialogService } from '@shared/model';
 import { TuiButton } from '@taiga-ui/core';
-
-import { AddExpenseService } from '../model/add-expense.service';
 
 @Component({
   selector: 'hb-add-expense',
@@ -22,12 +19,6 @@ import { AddExpenseService } from '../model/add-expense.service';
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: ExpenseFormService,
-      useClass: AddExpenseService,
-    },
-  ],
 })
 export class AddExpenseComponent {
   private readonly modalDialog = inject(ModalDialogService);
@@ -38,7 +29,7 @@ export class AddExpenseComponent {
     this.modalDialog.open('Add expense', form);
   }
 
-  submit(expenseFormValue: ExpenseFormValue): void {
+  add(expenseFormValue: ExpenseFormValue): void {
     const expense = mapExpenseFormValueToNewExpense(expenseFormValue);
 
     this.expensesStorage.add(expense);

@@ -16,3 +16,25 @@ export function mapExpenseFormValueToNewExpense(expenseFormValue: ExpenseFormVal
     category: expenseFormValue.category,
   };
 }
+
+export function mapExpenseFormValueToUpdatedExpense(
+  expenseFormValue: ExpenseFormValue,
+  expense: IExpense
+): IExpense {
+  return {
+    id: expense.id,
+    amount: expenseFormValue.amount ?? expense.amount,
+    date: expenseFormValue.date ?? expense.date,
+    currency: expenseFormValue.currency,
+    category: expenseFormValue.category,
+  };
+}
+
+export function mapExpenseToExpenseFormValue(expense: IExpense): ExpenseFormValue {
+  return {
+    amount: expense.amount,
+    date: expense.date,
+    currency: expense.currency,
+    category: expense.category,
+  };
+}

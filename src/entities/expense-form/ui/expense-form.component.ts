@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, input, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EXPENSE_CATEGORIES, EXPENSE_CURRENCIES } from '@shared/model';
 import { TuiAutoFocus } from '@taiga-ui/cdk';
@@ -39,6 +39,7 @@ import type { ExpenseFormValue } from '../model/expense-form.type';
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ExpenseFormService],
 })
 export class ExpenseFormComponent {
   protected readonly formService = inject(ExpenseFormService);
@@ -47,13 +48,28 @@ export class ExpenseFormComponent {
     map(breakpoint => breakpoint === 'mobile')
   );
 
+  formValue = input<ExpenseFormValue>();
+
   readonly submitForm = output<ExpenseFormValue>();
 
   protected readonly currencies = EXPENSE_CURRENCIES;
   protected readonly categories = EXPENSE_CATEGORIES;
 
+  constructor() {
+    this.setFormValue();
+  }
+
   submit(): void {
     this.submitForm.emit(this.formService.getValue());
-    this.formService.form.reset();
+  }
+
+  setFormValue(): void {
+    effect(() => {
+      const formValue = this.formValue();
+
+      if (formValue) {
+        this.formService.setValue(formValue);
+      }
+    });
   }
 }
