@@ -1,5 +1,13 @@
+@let expenses = expensesStorage.items();
+
 <h2>Expenses</h2>
 
-<hb-expenses-list [expenses]="expensesStorage.items()" (deleteExpense)="deleteExpense($event)" />
+@if (expenses.length) {
+  <hb-expenses-list [expenses]="expenses" />
+} @else {
+  <p class="text-center text-sm text-[--tui-text-secondary] md:text-base lg:text-lg">
+    You don't have expenses...
+  </p>
+}
 
-<hb-add-expense-form (addExpense)="addExpense($event)" />
+<hb-add-expense />

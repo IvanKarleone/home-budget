@@ -1,8 +1,10 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import type { IExpense } from '@shared/model';
+import { EXPENSE_CATEGORIES, EXPENSE_CURRENCIES } from '@shared/model';
 import { TuiAutoFocus } from '@taiga-ui/cdk';
-import { TuiBreakpointService, TuiButton, TuiDialog, TuiError } from '@taiga-ui/core';
+import { TuiBreakpointService, TuiButton, TuiError } from '@taiga-ui/core';
 import { TuiDataListWrapper, TuiFieldErrorPipe } from '@taiga-ui/kit';
 import {
   TuiInputDateModule,
@@ -12,19 +14,15 @@ import {
 } from '@taiga-ui/legacy';
 import { map } from 'rxjs';
 
-import { AddExpenseFormService } from '../../model/add-expense-form/add-expense-form.service';
-import type { IExpense } from '../../model/expense/expense.interface';
-import { EXPENSE_CATEGORIES } from '../../model/expense/expense-category.types';
-import { EXPENSE_CURRENCIES } from '../../model/expense/expense-currency.types';
+import { ExpenseFormService } from '../model/expense-form.service';
 
 @Component({
-  selector: 'hb-add-expense-form',
+  selector: 'hb-expense-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
     AsyncPipe,
     TuiButton,
-    TuiDialog,
     TuiInputNumberModule,
     TuiAutoFocus,
     TuiSelectModule,
@@ -34,38 +32,30 @@ import { EXPENSE_CURRENCIES } from '../../model/expense/expense-currency.types';
     TuiFieldErrorPipe,
     TuiError,
   ],
-  templateUrl: './add-expense-form.component.html',
+  templateUrl: './expense-form.component.html',
   styles: `
     :host {
       display: block;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [AddExpenseFormService],
 })
-export class AddExpenseFormComponent {
-  protected readonly addExpenseForm = inject(AddExpenseFormService);
+export class ExpenseFormComponent {
+  protected readonly formService = inject(ExpenseFormService);
 
   protected readonly isMobileBreakpoint$ = inject(TuiBreakpointService).pipe(
     map(breakpoint => breakpoint === 'mobile')
   );
 
+  readonly submitForm = output<IExpense>();
+
   protected readonly currencies = EXPENSE_CURRENCIES;
   protected readonly categories = EXPENSE_CATEGORIES;
 
-  protected isOpenedDialog = false;
-
-  protected readonly addExpense = output<IExpense>();
-
   submit(): void {
-    const expense = this.addExpenseForm.getValue();
+    const expense = this.formService.getValue();
+    this.submitForm.emit(expense);
 
-    this.addExpense.emit(expense);
-  }
-
-  afterCloseDialog(): void {
-    this.isOpenedDialog = false;
-
-    this.addExpenseForm.form.reset();
+    this.formService.form.reset();
   }
 }

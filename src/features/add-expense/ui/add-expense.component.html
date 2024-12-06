@@ -1,0 +1,15 @@
+<button
+  tuiIconButton
+  type="button"
+  [style.border-radius.%]="100"
+  title="Add expense"
+  appearance="outline"
+  size="m"
+  iconStart="@tui.plus"
+  (click)="openModalDialog(form)">
+  Add expense
+</button>
+
+<ng-template #form>
+  <hb-expense-form (submitForm)="submit($event)"></hb-expense-form>
+</ng-template>

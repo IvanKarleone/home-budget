@@ -1,12 +1,14 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { LocalStorageService } from '@shared/api';
 import { TuiDay } from '@taiga-ui/cdk';
 
 import type { IExpense } from '../../model/expense/expense.interface';
+import { LocalStorageService } from '../local-storage/local-storage.service';
 
 type ExpenseStorageItem = Omit<IExpense, 'date'> & { date: string };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ExpensesStorageService {
   private readonly storage = inject(LocalStorageService);
   private readonly key = 'expenses';

@@ -2,11 +2,13 @@ import { inject, Injectable } from '@angular/core';
 import { TuiAlertService } from '@taiga-ui/core';
 import { take } from 'rxjs';
 
-import { ExpenseCurrency } from '../expense/expense-currency.types';
+import type { ExpenseCurrency } from '../expense-currency.types';
 
-@Injectable()
-export class ExpensesAlertService {
-  private readonly alerts = inject(TuiAlertService);
+@Injectable({
+  providedIn: 'root',
+})
+export class ExpenseAlertService {
+  private readonly alert = inject(TuiAlertService);
 
   afterAdd(amount: number, currency: ExpenseCurrency): void {
     const label = 'Add expense';
@@ -27,7 +29,7 @@ export class ExpensesAlertService {
   }
 
   private openPositive(label: string, content: string): void {
-    this.alerts
+    this.alert
       .open(`<span class="font-medium text-sm">${content}</span>`, {
         label,
         appearance: 'positive',

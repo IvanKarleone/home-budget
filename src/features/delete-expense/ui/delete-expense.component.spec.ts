@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddExpenseFormComponent } from './add-expense-form.component';
+import { DeleteExpenseComponent } from './delete-expense.component';
 
-describe('AddExpenseFormComponent', () => {
-  let component: AddExpenseFormComponent;
-  let fixture: ComponentFixture<AddExpenseFormComponent>;
+describe('DeleteExpenseComponent', () => {
+  let component: DeleteExpenseComponent;
+  let fixture: ComponentFixture<DeleteExpenseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddExpenseFormComponent],
+      imports: [DeleteExpenseComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AddExpenseFormComponent);
+    fixture = TestBed.createComponent(DeleteExpenseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

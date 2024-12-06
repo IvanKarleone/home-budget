@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
-import type { ExpenseCategory } from '../../model/expense/expense-category.types';
+import type { ExpenseCategory } from '@shared/model';
 
 @Pipe({
   name: 'expenseCategoryIcon',

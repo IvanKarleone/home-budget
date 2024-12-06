@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { IExpense } from '@pages/expenses/model/expense/expense.interface';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import type { IExpense } from '@shared/model';
 
 import { ExpensesListItemComponent } from '../expenses-list-item/expenses-list-item.component';
 
@@ -20,6 +20,4 @@ import { ExpensesListItemComponent } from '../expenses-list-item/expenses-list-i
 })
 export class ExpensesListComponent {
   expenses = input.required<IExpense[]>();
-
-  readonly deleteExpense = output<number>();
 }

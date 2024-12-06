@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
-import { IExpense } from '@pages/expenses/model/expense/expense.interface';
+import { DeleteExpenseComponent } from '@features/delete-expense';
+import type { IExpense } from '@shared/model';
 import { ConfirmDialogService } from '@shared/model';
 import { DropdownButtonComponent } from '@shared/ui';
 import { TuiDataList, TuiIcon } from '@taiga-ui/core';
@@ -20,6 +21,7 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
     ExpenseCategoryIconPipe,
     ExpenseCategoryColorPipe,
     DropdownButtonComponent,
+    DeleteExpenseComponent,
   ],
   templateUrl: './expenses-list-item.component.html',
   styles: `
