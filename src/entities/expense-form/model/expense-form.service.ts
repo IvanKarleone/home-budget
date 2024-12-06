@@ -21,7 +21,7 @@ export class ExpenseFormService {
     this.form.setValue(formValue);
   }
 
-  protected init(): FormGroup<ExpenseForm> {
+  private init(): FormGroup<ExpenseForm> {
     return new FormGroup<ExpenseForm>({
       amount: new FormControl(null, [Validators.required]),
       date: new FormControl(null, [Validators.required]),

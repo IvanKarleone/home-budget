@@ -1,9 +1,9 @@
-type InternalStorage = Pick<Storage, 'getItem' | 'removeItem' | 'setItem' | 'clear'> & {
+type InternalStorageType = Pick<Storage, 'getItem' | 'removeItem' | 'setItem' | 'clear'> & {
   getObjectItem: (key: string) => unknown | null;
   setObjectItem: (item: object, key: string) => void;
 };
 
-export class InternalStorageService implements InternalStorage {
+export class InternalStorage implements InternalStorageType {
   protected readonly storage: Storage;
 
   private readonly keyPrefix = 'home-budget';
