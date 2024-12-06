@@ -1,7 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import type { IExpense } from '@shared/model';
 import { EXPENSE_CATEGORIES, EXPENSE_CURRENCIES } from '@shared/model';
 import { TuiAutoFocus } from '@taiga-ui/cdk';
 import { TuiBreakpointService, TuiButton, TuiError } from '@taiga-ui/core';
@@ -15,6 +14,7 @@ import {
 import { map } from 'rxjs';
 
 import { ExpenseFormService } from '../model/expense-form.service';
+import type { ExpenseFormValue } from '../model/expense-form.type';
 
 @Component({
   selector: 'hb-expense-form',
@@ -47,15 +47,13 @@ export class ExpenseFormComponent {
     map(breakpoint => breakpoint === 'mobile')
   );
 
-  readonly submitForm = output<IExpense>();
+  readonly submitForm = output<ExpenseFormValue>();
 
   protected readonly currencies = EXPENSE_CURRENCIES;
   protected readonly categories = EXPENSE_CATEGORIES;
 
   submit(): void {
-    const expense = this.formService.getValue();
-    this.submitForm.emit(expense);
-
+    this.submitForm.emit(this.formService.getValue());
     this.formService.form.reset();
   }
 }

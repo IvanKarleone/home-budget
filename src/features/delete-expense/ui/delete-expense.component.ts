@@ -22,8 +22,11 @@ export class DeleteExpenseComponent {
   private readonly expenseAlert = inject(ExpenseAlertService);
 
   delete(): void {
-    // TODO
-    this.expensesStorage.delete(1);
-    this.expenseAlert.afterDelete();
+    this.confirmDialog.openForDelete().subscribe(isConfirmed => {
+      if (isConfirmed) {
+        this.expensesStorage.delete(this.id());
+        this.expenseAlert.afterDelete();
+      }
+    });
   }
 }

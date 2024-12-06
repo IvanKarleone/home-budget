@@ -26,14 +26,8 @@ export class ExpensesStorageService {
     console.log('update');
   }
 
-  delete(expenseIndex: number): void {
-    this._items.update(items => {
-      const itemsAfterDelete = [...items];
-
-      itemsAfterDelete.splice(expenseIndex, 1);
-
-      return itemsAfterDelete;
-    });
+  delete(id: string): void {
+    this._items.update(items => items.filter(item => item.id !== id));
 
     this.storage.setObjectItem(this.items(), this.key);
   }

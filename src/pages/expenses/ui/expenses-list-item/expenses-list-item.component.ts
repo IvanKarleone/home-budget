@@ -1,8 +1,7 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { DeleteExpenseComponent } from '@features/delete-expense';
 import type { IExpense } from '@shared/model';
-import { ConfirmDialogService } from '@shared/model';
 import { DropdownButtonComponent } from '@shared/ui';
 import { TuiDataList, TuiIcon } from '@taiga-ui/core';
 
@@ -32,22 +31,5 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesListItemComponent {
-  private readonly confirmDialog = inject(ConfirmDialogService);
-
   expense = input.required<IExpense>();
-
-  readonly updateItem = output<void>();
-  readonly deleteItem = output<void>();
-
-  update(): void {
-    this.updateItem.emit();
-  }
-
-  delete(): void {
-    this.confirmDialog.openForDelete().subscribe(isConfirmed => {
-      if (isConfirmed) {
-        this.deleteItem.emit();
-      }
-    });
-  }
 }

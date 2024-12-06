@@ -7,7 +7,9 @@ type SimpleForm<T extends object> = {
   [P in keyof T]: FormControl<T[P]>;
 };
 
-export type ExpenseForm = Omit<SimpleForm<IExpense>, 'amount' | 'date'> & {
-  amount: FormControl<number | null>;
-  date: FormControl<TuiDay | null>;
+export type ExpenseFormValue = Omit<IExpense, 'id' | 'amount' | 'date'> & {
+  amount: number | null;
+  date: TuiDay | null;
 };
+
+export type ExpenseForm = SimpleForm<ExpenseFormValue>;

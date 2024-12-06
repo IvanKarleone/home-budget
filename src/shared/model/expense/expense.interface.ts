@@ -4,6 +4,7 @@ import type { ExpenseCategory } from './expense-category.types';
 import type { ExpenseCurrency } from './expense-currency.types';
 
 export interface IExpense {
+  id: string;
   amount: number;
   date: TuiDay;
   currency: ExpenseCurrency;
