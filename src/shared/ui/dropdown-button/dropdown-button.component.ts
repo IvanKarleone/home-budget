@@ -7,12 +7,10 @@ type ButtonSize = 's' | 'm';
   selector: 'hb-dropdown-button',
   imports: [TuiButton, TuiDataList, TuiDropdown],
   templateUrl: './dropdown-button.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class DropdownButtonComponent {
   menu = input.required<TemplateRef<unknown>>();

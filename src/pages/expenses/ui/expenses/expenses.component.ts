@@ -8,15 +8,10 @@ import { ExpensesListComponent } from '../expenses-list/expenses-list.component'
   selector: 'hb-expenses',
   imports: [AddExpenseComponent, ExpensesListComponent],
   templateUrl: './expenses.component.html',
-  styles: `
-    :host {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      row-gap: 16px;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'flex flex-col items-center gap-4',
+  },
 })
 export class ExpensesComponent {
   protected readonly expensesStorage = inject(ExpensesStorageService);

@@ -24,12 +24,10 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
     DeleteExpenseComponent,
   ],
   templateUrl: './expenses-list-item.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class ExpensesListItemComponent {
   expense = input.required<IExpense>();

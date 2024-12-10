@@ -19,12 +19,10 @@ import { ExpenseAlertService, IExpense, ModalDialogService } from '@shared/model
   selector: 'hb-update-expense',
   imports: [ExpenseFormComponent],
   templateUrl: './update-expense.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class UpdateExpenseComponent {
   private readonly modalDialog = inject(ModalDialogService);

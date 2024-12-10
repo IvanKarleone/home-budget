@@ -7,12 +7,10 @@ import { TuiDataList } from '@taiga-ui/core';
   selector: 'hb-user-avatar',
   imports: [TuiDataList, ThemeSwitchComponent, DropdownButtonComponent],
   templateUrl: './user-avatar.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class UserAvatarComponent {
   protected isOpenedUserMenu = false;

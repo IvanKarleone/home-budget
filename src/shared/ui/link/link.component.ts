@@ -7,10 +7,6 @@ import { TuiButton } from '@taiga-ui/core';
   imports: [RouterLink, RouterLinkActive, TuiButton],
   templateUrl: './link.component.html',
   styles: `
-    :host {
-      display: block;
-    }
-
     a.active {
       border-bottom: 2px solid;
       border-bottom-left-radius: 0;
@@ -18,6 +14,9 @@ import { TuiButton } from '@taiga-ui/core';
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class LinkComponent {
   title = input.required<string>();

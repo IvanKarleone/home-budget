@@ -4,11 +4,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'hb-incomes',
   imports: [],
   templateUrl: './incomes.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class IncomesComponent {}

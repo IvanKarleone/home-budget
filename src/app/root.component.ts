@@ -10,12 +10,10 @@ import { MenuComponent } from './ui/menu/menu.component';
   selector: 'hb-root',
   imports: [RouterOutlet, TuiRoot, MenuComponent],
   templateUrl: './root.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class RootComponent {
   private readonly themeStorage = inject(ThemeStorageService);

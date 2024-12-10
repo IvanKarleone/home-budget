@@ -7,14 +7,9 @@ import { ExpensesListItemComponent } from '../expenses-list-item/expenses-list-i
   selector: 'hb-expenses-list',
   imports: [ExpensesListItemComponent],
   templateUrl: './expenses-list.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'w-full md:w-3/4 lg:w-1/2 xl:w-1/3',
+    class: 'block w-full md:w-3/4 lg:w-1/2 xl:w-1/3',
   },
 })
 export class ExpensesListComponent {

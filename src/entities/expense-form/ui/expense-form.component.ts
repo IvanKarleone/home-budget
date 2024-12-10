@@ -32,13 +32,11 @@ import type { ExpenseFormValue } from '../model/expense-form.type';
     TuiError,
   ],
   templateUrl: './expense-form.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ExpenseFormService],
+  host: {
+    class: 'block',
+  },
 })
 export class ExpenseFormComponent {
   protected readonly formService = inject(ExpenseFormService);

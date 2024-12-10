@@ -12,12 +12,10 @@ import { TuiButton } from '@taiga-ui/core';
   selector: 'hb-add-expense',
   imports: [TuiButton, ExpenseFormComponent],
   templateUrl: './add-expense.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block',
+  },
 })
 export class AddExpenseComponent {
   private readonly modalDialog = inject(ModalDialogService);
