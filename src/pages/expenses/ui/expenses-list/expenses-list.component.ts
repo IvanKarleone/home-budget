@@ -9,7 +9,7 @@ import { ExpensesListItemComponent } from '../expenses-list-item/expenses-list-i
   templateUrl: './expenses-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'block w-full md:w-3/4 lg:w-1/2 xl:w-1/3',
+    class: 'block w-full',
   },
 })
 export class ExpensesListComponent {

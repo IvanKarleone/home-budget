@@ -1,0 +1,13 @@
+<ng-container *ngTemplateOutlet="listTemplate(); context: { $implicit: this.displayedItems() }" />
+
+@if (isVisiblePages()) {
+  <tui-pagination
+    class="mt-3"
+    size="l"
+    [focusable]="true"
+    [activePadding]="1"
+    [sidePadding]="-1"
+    [length]="pagesCount()"
+    [index]="currentPageIndex()"
+    (indexChange)="goToPage($event)" />
+}

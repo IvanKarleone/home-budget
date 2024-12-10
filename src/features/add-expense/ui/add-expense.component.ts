@@ -14,7 +14,7 @@ import { TuiButton } from '@taiga-ui/core';
   templateUrl: './add-expense.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'block',
+    class: 'sticky bottom-0 mt-5 flex w-full justify-center bg-[--tui-background-base] py-2',
   },
 })
 export class AddExpenseComponent {
