@@ -3,7 +3,6 @@ import type { ExpenseCategory } from '@shared/model';
 
 @Pipe({
   name: 'expenseCategoryColor',
-  standalone: true,
 })
 export class ExpenseCategoryColorPipe implements PipeTransform {
   transform(expenseCategory: ExpenseCategory): string {

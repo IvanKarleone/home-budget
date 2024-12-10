@@ -3,7 +3,6 @@ import type { ExpenseCategory } from '@shared/model';
 
 @Pipe({
   name: 'expenseCategoryIcon',
-  standalone: true,
 })
 export class ExpenseCategoryIconPipe implements PipeTransform {
   transform(expenseCategory: ExpenseCategory): string {

@@ -6,7 +6,6 @@ import { TuiSwitch } from '@taiga-ui/kit';
 
 @Component({
   selector: 'hb-theme-switch',
-  standalone: true,
   imports: [FormsModule, TuiSwitch, TuiIcon],
   templateUrl: './theme-switch.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -17,7 +17,6 @@ import { ExpenseAlertService, IExpense, ModalDialogService } from '@shared/model
 
 @Component({
   selector: 'hb-update-expense',
-  standalone: true,
   imports: [ExpenseFormComponent],
   templateUrl: './update-expense.component.html',
   styles: `

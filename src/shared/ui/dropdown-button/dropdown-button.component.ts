@@ -5,7 +5,6 @@ type ButtonSize = 's' | 'm';
 
 @Component({
   selector: 'hb-dropdown-button',
-  standalone: true,
   imports: [TuiButton, TuiDataList, TuiDropdown],
   templateUrl: './dropdown-button.component.html',
   styles: `

@@ -5,7 +5,6 @@ import { TuiDataList } from '@taiga-ui/core';
 
 @Component({
   selector: 'hb-user-avatar',
-  standalone: true,
   imports: [TuiDataList, ThemeSwitchComponent, DropdownButtonComponent],
   templateUrl: './user-avatar.component.html',
   styles: `

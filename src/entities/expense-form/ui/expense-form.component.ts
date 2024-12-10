@@ -18,7 +18,6 @@ import type { ExpenseFormValue } from '../model/expense-form.type';
 
 @Component({
   selector: 'hb-expense-form',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     AsyncPipe,

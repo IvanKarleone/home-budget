@@ -10,7 +10,6 @@ import { TuiButton } from '@taiga-ui/core';
 
 @Component({
   selector: 'hb-add-expense',
-  standalone: true,
   imports: [TuiButton, ExpenseFormComponent],
   templateUrl: './add-expense.component.html',
   styles: `

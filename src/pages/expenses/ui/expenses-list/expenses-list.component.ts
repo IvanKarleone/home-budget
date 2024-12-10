@@ -5,7 +5,6 @@ import { ExpensesListItemComponent } from '../expenses-list-item/expenses-list-i
 
 @Component({
   selector: 'hb-expenses-list',
-  standalone: true,
   imports: [ExpensesListItemComponent],
   templateUrl: './expenses-list.component.html',
   styles: `

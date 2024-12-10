@@ -12,7 +12,6 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
 
 @Component({
   selector: 'hb-expenses-list-item',
-  standalone: true,
   imports: [
     NgClass,
     TuiIcon,

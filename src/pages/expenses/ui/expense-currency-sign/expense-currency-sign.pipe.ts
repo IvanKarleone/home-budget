@@ -3,7 +3,6 @@ import type { ExpenseCurrency } from '@shared/model';
 
 @Pipe({
   name: 'expenseCurrencySign',
-  standalone: true,
 })
 export class ExpenseCurrencySignPipe implements PipeTransform {
   transform(expenseCurrency: ExpenseCurrency): string {

@@ -4,7 +4,6 @@ import { TuiButton } from '@taiga-ui/core';
 
 @Component({
   selector: 'hb-link',
-  standalone: true,
   imports: [RouterLink, RouterLinkActive, TuiButton],
   templateUrl: './link.component.html',
   styles: `

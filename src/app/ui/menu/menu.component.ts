@@ -5,7 +5,6 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
 
 @Component({
   selector: 'hb-menu',
-  standalone: true,
   imports: [LinkComponent, UserAvatarComponent],
   templateUrl: './menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

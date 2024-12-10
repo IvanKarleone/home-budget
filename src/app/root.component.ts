@@ -8,7 +8,6 @@ import { MenuComponent } from './ui/menu/menu.component';
 
 @Component({
   selector: 'hb-root',
-  standalone: true,
   imports: [RouterOutlet, TuiRoot, MenuComponent],
   templateUrl: './root.component.html',
   styles: `
