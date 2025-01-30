@@ -7,6 +7,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
     "lint": "ng lint",
+    "deploy:local": "ng build && firebase deploy --only hosting",
     "lint-staged": "lint-staged",
     "analyze-circular": "npx depcruise --config .dependency-cruiser.js src",
     "analyze-fsd": "steiger ./src",

@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "staging": "home-budget-897c3",
+    "main-project": "home-budget-897c3",
+    "default": "home-budget-897c3"
+  },
+  "targets": {},
+  "etags": {}
+}
