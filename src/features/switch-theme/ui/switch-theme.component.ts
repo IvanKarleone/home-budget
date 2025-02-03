@@ -5,15 +5,15 @@ import { TuiIcon } from '@taiga-ui/core';
 import { TuiSwitch } from '@taiga-ui/kit';
 
 @Component({
-  selector: 'hb-theme-switch',
+  selector: 'hb-switch-theme',
   imports: [FormsModule, TuiSwitch, TuiIcon],
-  templateUrl: './theme-switch.component.html',
+  templateUrl: './switch-theme.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'inline-flex gap-3',
   },
 })
-export class ThemeSwitchComponent {
+export class SwitchThemeComponent {
   readonly themeStorageService = inject(ThemeStorageService);
 
   readonly switchTheme = output<void>();

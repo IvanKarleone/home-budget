@@ -3,22 +3,22 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LocalStorageService, ThemeStorageService } from '@shared/api';
 
-import { ThemeSwitchComponent } from './theme-switch.component';
+import { SwitchThemeComponent } from './switch-theme.component';
 
-describe('ThemeSwitchComponent', () => {
-  let fixture: ComponentFixture<ThemeSwitchComponent>;
+describe('SwitchThemeComponent', () => {
+  let fixture: ComponentFixture<SwitchThemeComponent>;
 
-  let component: ThemeSwitchComponent;
+  let component: SwitchThemeComponent;
   let debugElement: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ThemeSwitchComponent],
+      imports: [SwitchThemeComponent],
     }).compileComponents();
 
     TestBed.inject(LocalStorageService).clear();
 
-    fixture = TestBed.createComponent(ThemeSwitchComponent);
+    fixture = TestBed.createComponent(SwitchThemeComponent);
 
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
