@@ -8,6 +8,8 @@ import { routes } from '@app/routes/app.routes';
 import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins';
 import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
 
+import { FIREBASE_OPTIONS } from './firebase-options';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
@@ -17,16 +19,7 @@ export const appConfig: ApplicationConfig = {
     tuiValidationErrorsProvider({
       required: 'Required to fill',
     }),
-    provideFirebaseApp(() =>
-      initializeApp({
-        projectId: 'home-budget-897c3',
-        appId: '1:346296040686:web:748d0249f3c490a86f07ff',
-        storageBucket: 'home-budget-897c3.firebasestorage.app',
-        apiKey: 'AIzaSyDampO4KDEv9kDRLOxTsBooMoCFU03XEqI',
-        authDomain: 'home-budget-897c3.firebaseapp.com',
-        messagingSenderId: '346296040686',
-      })
-    ),
+    provideFirebaseApp(() => initializeApp(FIREBASE_OPTIONS)),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
   ],
