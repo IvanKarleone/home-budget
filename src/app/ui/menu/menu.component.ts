@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { BreakpointService } from '@shared/model';
 import { LinkComponent } from '@shared/ui';
 
 import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
@@ -12,4 +13,6 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
     class: 'sticky top-0 z-10 mb-5 block bg-[--tui-background-base] px-4 pt-2',
   },
 })
-export class MenuComponent {}
+export class MenuComponent {
+  protected readonly isAboveMobileBreakpoint = inject(BreakpointService).isAboveMobile;
+}

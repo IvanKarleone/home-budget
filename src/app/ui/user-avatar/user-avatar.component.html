@@ -3,16 +3,16 @@
 <ng-template #dropdown let-close>
   <tui-data-list class="w-28">
     <tui-opt-group>
-      <!-- TODO add page profile -->
       <a tuiOption routerLink="/">Profile</a>
       <button tuiOption type="button">
         <hb-switch-theme (switchTheme)="close()" />
       </button>
-      <button tuiOption type="button" (click)="close()">Test</button>
     </tui-opt-group>
-    <tui-opt-group>
-      <!-- TODO add page log-in and log-out -->
-      <a tuiOption routerLink="/">Log in</a>
+    <tui-opt-group class="after:top-0" (click)="close()">
+      @if (isMobileBreakpoint()) {
+        <a tuiOption [routerLink]="['sign-up']">Sign up</a>
+      }
+      <a tuiOption [routerLink]="['sign-in']">Sign in</a>
     </tui-opt-group>
   </tui-data-list>
 </ng-template>

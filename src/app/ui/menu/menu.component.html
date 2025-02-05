@@ -1,5 +1,5 @@
 <header class="flex items-center justify-between">
-  <nav>
+  <nav class="mr-3 flex-grow">
     <ul class="flex gap-2">
       <li>
         <hb-link title="expenses" [route]="['user', 'expenses']">Expenses</hb-link>
@@ -7,7 +7,15 @@
       <li>
         <hb-link title="incomes" [route]="['user', 'incomes']">Incomes</hb-link>
       </li>
+      @if (isAboveMobileBreakpoint()) {
+        <li class="ml-auto">
+          <hb-link title="sign-up" route="sign-up" activeClass="" appearance="outline">
+            Sign up
+          </hb-link>
+        </li>
+      }
     </ul>
   </nav>
+
   <hb-user-avatar />
 </header>

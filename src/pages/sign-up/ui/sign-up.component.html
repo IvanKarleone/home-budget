@@ -1,0 +1,37 @@
+<img class="mb-7" src="/assets/home-budget.webp" alt="" width="64" height="64" />
+
+<h2 class="mb-4">Sign up to Home budget</h2>
+
+<div class="w-72 md:w-80">
+  <form
+    [formGroup]="signUpFormService.form"
+    class="mb-4 flex flex-col gap-3 rounded-lg border border-solid border-[var(--tui-border-normal)] bg-[var(--tui-background-elevation-1)] p-4"
+    (submit)="signUp()">
+    <tui-input formControlName="fullName">
+      Name
+      <input tuiTextfieldLegacy type="text" />
+    </tui-input>
+
+    <tui-input formControlName="email">
+      Email
+      <input tuiTextfieldLegacy type="email" />
+    </tui-input>
+
+    <tui-input formControlName="password">
+      Password
+      <input tuiTextfieldLegacy type="password" />
+    </tui-input>
+
+    <button tuiButton size="m" type="submit">Sign up</button>
+  </form>
+
+  <p
+    class="flex flex-col rounded-lg border border-solid border-[var(--tui-border-normal)] p-3 text-center text-sm md:text-base">
+    <span> Exist an account? </span>
+    <a
+      class="self-center text-[var(--tui-text-action)] hover:text-[var(--tui-text-action-hover)]"
+      routerLink="/sign-in">
+      Sign in
+    </a>
+  </p>
+</div>
