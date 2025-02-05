@@ -1,4 +1,4 @@
-@let formControlSize = (isMobileBreakpoint$ | async) ? 'm' : 'l';
+@let formControlSize = isMobileBreakpoint() ? 'm' : 'l';
 
 <form class="flex flex-col gap-y-5 pt-5" [formGroup]="formService.form" (ngSubmit)="submit()">
   <div>
@@ -6,7 +6,7 @@
       Type an amount
     </tui-input-number>
 
-    <tui-error formControlName="amount" [error]="[] | tuiFieldError | async"> </tui-error>
+    <tui-error formControlName="amount" [error]="[] | tuiFieldError | async"></tui-error>
   </div>
 
   <div>
@@ -14,12 +14,12 @@
       Choose a date
     </tui-input-date>
 
-    <tui-error formControlName="date" [error]="[] | tuiFieldError | async"> </tui-error>
+    <tui-error formControlName="date" [error]="[] | tuiFieldError | async"></tui-error>
   </div>
 
   <tui-select formControlName="currency" [tuiTextfieldSize]="formControlSize">
     Currency
-    <tui-data-list-wrapper *tuiDataList [items]="currencies"> </tui-data-list-wrapper>
+    <tui-data-list-wrapper *tuiDataList [items]="currencies"></tui-data-list-wrapper>
   </tui-select>
 
   <tui-select formControlName="category" [tuiTextfieldSize]="formControlSize">

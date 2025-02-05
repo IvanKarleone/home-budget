@@ -1,9 +1,9 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject, input, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EXPENSE_CATEGORIES, EXPENSE_CURRENCIES } from '@shared/model';
+import { BreakpointService, EXPENSE_CATEGORIES, EXPENSE_CURRENCIES } from '@shared/model';
 import { TuiAutoFocus } from '@taiga-ui/cdk';
-import { TuiBreakpointService, TuiButton, TuiError } from '@taiga-ui/core';
+import { TuiButton, TuiError } from '@taiga-ui/core';
 import { TuiDataListWrapper, TuiFieldErrorPipe } from '@taiga-ui/kit';
 import {
   TuiInputDateModule,
@@ -11,7 +11,6 @@ import {
   TuiSelectModule,
   TuiTextfieldControllerModule,
 } from '@taiga-ui/legacy';
-import { map } from 'rxjs';
 
 import { ExpenseFormService } from '../model/expense-form.service';
 import type { ExpenseFormValue } from '../model/expense-form.type';
@@ -40,10 +39,7 @@ import type { ExpenseFormValue } from '../model/expense-form.type';
 })
 export class ExpenseFormComponent {
   protected readonly formService = inject(ExpenseFormService);
-
-  protected readonly isMobileBreakpoint$ = inject(TuiBreakpointService).pipe(
-    map(breakpoint => breakpoint === 'mobile')
-  );
+  protected readonly isMobileBreakpoint = inject(BreakpointService).isMobile;
 
   formValue = input<ExpenseFormValue>();
 

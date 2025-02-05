@@ -1,3 +1,4 @@
+export { BreakpointService } from './breakpoint/breakpoint.service';
 export { ConfirmDialogService } from './dialog/confirm-dialog/confirm-dialog.service';
 export { ModalDialogService } from './dialog/modal-dialog/modal-dialog.service';
 export { ExpenseAlertService } from './expense/alert/expense-alert.service';
