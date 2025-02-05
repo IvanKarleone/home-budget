@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TuiButton } from '@taiga-ui/core';
 
 @Component({
   selector: 'hb-not-found',
@@ -7,5 +9,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   host: {
     class: 'block',
   },
+  imports: [TuiButton, RouterLink],
 })
 export class NotFoundComponent {}
