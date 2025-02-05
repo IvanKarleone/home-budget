@@ -12,7 +12,7 @@ import { MenuComponent } from './ui/menu/menu.component';
   templateUrl: './root.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'block',
+    class: 'block h-screen',
   },
 })
 export class RootComponent {

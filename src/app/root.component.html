@@ -1,9 +1,11 @@
-<tui-root [attr.tuiTheme]="theme()">
-  <h1 class="sr-only">Home budget</h1>
+<tui-root class="h-full" [attr.tuiTheme]="theme()">
+  <div class="flex h-full flex-col">
+    <h1 class="sr-only">Home budget</h1>
 
-  <hb-menu />
+    <hb-menu />
 
-  <main class="px-4 pb-4">
-    <router-outlet />
-  </main>
+    <main class="grow px-4 pb-4">
+      <router-outlet />
+    </main>
+  </div>
 </tui-root>
