@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
 
+type Appearance = 'flat' | 'outline';
+
 @Component({
   selector: 'hb-link',
   imports: [RouterLink, RouterLinkActive, TuiButton],
@@ -22,4 +24,5 @@ export class LinkComponent {
   title = input.required<string>();
   route = input.required<string | string[]>();
   activeClass = input<string>('active');
+  appearance = input<Appearance>('flat');
 }
