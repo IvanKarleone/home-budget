@@ -6,9 +6,9 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { routes } from '@app/routes/app.routes';
 import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins';
-import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
 
 import { FIREBASE_OPTIONS } from './firebase-options';
+import { provideValidationErrors } from './provide-validation-errors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,9 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     NG_EVENT_PLUGINS,
-    tuiValidationErrorsProvider({
-      required: 'Required to fill',
-    }),
+    provideValidationErrors(),
     provideFirebaseApp(() => initializeApp(FIREBASE_OPTIONS)),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),

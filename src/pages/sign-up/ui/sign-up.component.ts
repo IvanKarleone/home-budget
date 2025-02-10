@@ -1,14 +1,24 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TuiButton } from '@taiga-ui/core';
+import { TuiButton, TuiError } from '@taiga-ui/core';
+import { TuiFieldErrorPipe } from '@taiga-ui/kit';
 import { TuiInputModule } from '@taiga-ui/legacy';
 
 import { SignUpFormService } from '../model/sign-up-form.service';
 
 @Component({
   selector: 'hb-sign-up',
-  imports: [RouterLink, ReactiveFormsModule, TuiInputModule, TuiButton],
+  imports: [
+    RouterLink,
+    ReactiveFormsModule,
+    TuiInputModule,
+    TuiButton,
+    AsyncPipe,
+    TuiError,
+    TuiFieldErrorPipe,
+  ],
   templateUrl: './sign-up.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
@@ -20,9 +30,9 @@ export class SignUpComponent {
   protected readonly signUpFormService = inject(SignUpFormService);
 
   signUp(): void {
-    const { fullName, email, password } = this.signUpFormService.getValue();
+    const { name, email, password } = this.signUpFormService.getValue();
 
-    console.log(fullName);
+    console.log(name);
     console.log(email);
     console.log(password);
   }

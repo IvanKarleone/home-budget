@@ -9,4 +9,10 @@ export type { ExpenseCurrency } from './expense/expense-currency.types';
 export { EXPENSE_CURRENCIES, EXPENSE_CURRENCY } from './expense/expense-currency.types';
 export { BaseFormService } from './form/base-form.service';
 export type { Form } from './form/form.type';
+export {
+  lowercasePatternValidator,
+  numericPatternValidator,
+  uppercasePatternValidator,
+} from './form/validators/pattern-validators';
+export { PATTERN_VALIDATOR } from './form/validators/pattern-validators.types';
 export type { Theme } from './theme/theme.type';
