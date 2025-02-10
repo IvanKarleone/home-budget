@@ -1,30 +1,24 @@
-@let formControlSize = isMobileBreakpoint() ? 'm' : 'l';
-
 <form class="flex flex-col gap-y-5 pt-5" [formGroup]="formService.form" (ngSubmit)="submit()">
   <div>
-    <tui-input-number formControlName="amount" [tuiTextfieldSize]="formControlSize" tuiAutoFocus>
-      Type an amount
-    </tui-input-number>
+    <tui-input-number formControlName="amount" tuiAutoFocus> Type an amount</tui-input-number>
 
-    <tui-error formControlName="amount" [error]="[] | tuiFieldError | async"></tui-error>
+    <tui-error formControlName="amount" [error]="[] | tuiFieldError | async" />
   </div>
 
   <div>
-    <tui-input-date formControlName="date" [tuiTextfieldSize]="formControlSize">
-      Choose a date
-    </tui-input-date>
+    <tui-input-date formControlName="date"> Choose a date</tui-input-date>
 
-    <tui-error formControlName="date" [error]="[] | tuiFieldError | async"></tui-error>
+    <tui-error formControlName="date" [error]="[] | tuiFieldError | async" />
   </div>
 
-  <tui-select formControlName="currency" [tuiTextfieldSize]="formControlSize">
+  <tui-select formControlName="currency">
     Currency
-    <tui-data-list-wrapper *tuiDataList [items]="currencies"></tui-data-list-wrapper>
+    <tui-data-list-wrapper *tuiDataList [items]="currencies" />
   </tui-select>
 
-  <tui-select formControlName="category" [tuiTextfieldSize]="formControlSize">
+  <tui-select formControlName="category">
     Category
-    <tui-data-list-wrapper *tuiDataList [items]="categories"></tui-data-list-wrapper>
+    <tui-data-list-wrapper *tuiDataList [items]="categories" />
   </tui-select>
 
   <button class="self-start" tuiButton type="submit" size="m" [disabled]="formService.form.invalid">
