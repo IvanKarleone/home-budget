@@ -1,5 +1,7 @@
 <ul class="flex flex-col gap-3">
   @for (expense of expenses(); track expense.id) {
-    <hb-expenses-list-item [expense]="expense" />
+    <li>
+      <hb-expenses-list-item [expense]="expense" />
+    </li>
   }
 </ul>

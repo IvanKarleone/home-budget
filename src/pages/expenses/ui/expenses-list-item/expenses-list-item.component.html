@@ -1,31 +1,28 @@
-<li
-  class="flex w-full justify-between rounded-md border-2 border-solid border-[--tui-border-normal] px-2 py-3 text-sm font-medium lg:text-base">
-  <div class="flex items-center" [ngClass]="expense().category | expenseCategoryColor">
-    <tui-icon [icon]="expense().category | expenseCategoryIcon" class="h-5 w-5 lg:h-6 lg:w-6" />
-    &nbsp;
-    <span>{{ expense().category }}</span>
-  </div>
-  <div class="flex items-center gap-4">
+<div class="flex items-center" [ngClass]="expense().category | expenseCategoryColor">
+  <tui-icon [icon]="expense().category | expenseCategoryIcon" class="h-5 w-5 lg:h-6 lg:w-6" />
+  <span>&nbsp;</span>
+  <span>{{ expense().category }}</span>
+</div>
+<div class="flex items-center gap-4">
+  <div>
     <div>
-      <div>
-        <span>{{ expense().amount }}</span>
-        <span>{{ expense().currency | expenseCurrencySign }}</span>
-      </div>
-      <time class="flex flex-col" [dateTime]="expense().date.toString('YMD', '-')">
-        <span class="sr-only">Date of expense</span>
-        <span class="text-xs text-[--tui-text-secondary]">
-          {{ expense().date }}
-        </span>
-      </time>
+      <span>{{ expense().amount }}</span>
+      <span>{{ expense().currency | expenseCurrencySign }}</span>
     </div>
-
-    <hb-dropdown-button
-      [menu]="expenseDropdown"
-      size="s"
-      icon="ellipsis-vertical"
-      title="Expense menu" />
+    <time class="flex flex-col" [dateTime]="expense().date.toString('YMD', '-')">
+      <span class="sr-only">Date of expense</span>
+      <span class="text-xs text-[--tui-text-secondary]">
+        {{ expense().date }}
+      </span>
+    </time>
   </div>
-</li>
+
+  <hb-dropdown-button
+    [menu]="expenseDropdown"
+    size="s"
+    icon="ellipsis-vertical"
+    title="Expense menu" />
+</div>
 
 <ng-template #expenseDropdown>
   <tui-data-list class="w-28">

@@ -26,7 +26,8 @@ import { ExpenseCurrencySignPipe } from '../expense-currency-sign/expense-curren
   templateUrl: './expenses-list-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'block',
+    class:
+      'flex w-full justify-between rounded-md border-2 border-solid border-[--tui-border-normal] px-2 py-3 text-sm font-medium lg:text-base',
   },
 })
 export class ExpensesListItemComponent {
