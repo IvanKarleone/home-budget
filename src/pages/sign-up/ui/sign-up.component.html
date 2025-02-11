@@ -26,10 +26,11 @@
     </div>
 
     <div>
-      <tui-input formControlName="password">
-        Password
-        <input tuiTextfieldLegacy type="password" />
-      </tui-input>
+      <tui-textfield>
+        <label tuiLabel for="temp">Password</label>
+        <input id="temp" tuiTextfield type="password" formControlName="password" />
+        <tui-icon tuiPassword />
+      </tui-textfield>
 
       <tui-error formControlName="password" [error]="[] | tuiFieldError | async" />
     </div>
