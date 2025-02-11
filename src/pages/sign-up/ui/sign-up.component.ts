@@ -22,7 +22,7 @@ import { SignUpFormService } from '../model/sign-up-form.service';
   templateUrl: './sign-up.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'mt-8 flex h-full flex-col items-center',
+    class: 'flex h-full flex-col items-center',
   },
   providers: [SignUpFormService],
 })

@@ -10,7 +10,7 @@ import { UserAvatarComponent } from '../user-avatar/user-avatar.component';
   templateUrl: './menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'sticky top-0 z-10 mb-5 block bg-[--tui-background-base] px-4 pt-2',
+    class: 'sticky top-0 z-10 mb-7 block bg-[--tui-background-base] px-4 pt-2',
   },
 })
 export class MenuComponent {
