@@ -4,28 +4,23 @@
 
 <div class="w-72 md:w-80">
   <form
-    [formGroup]="signUpFormService.form"
+    [formGroup]="formService.form"
     class="mb-4 flex flex-col gap-3 rounded-lg border border-solid border-[var(--tui-border-normal)] bg-[var(--tui-background-elevation-1)] p-4"
     (submit)="signUp()">
     <hb-input-text
       [id]="'name'"
       label="Name"
-      [control]="signUpFormService.form.controls.name"
+      [control]="formService.form.controls.name"
       [autofocus]="true" />
 
-    <hb-input-email
-      [id]="'email'"
-      label="Email"
-      [control]="signUpFormService.form.controls.email" />
+    <hb-input-email [id]="'email'" label="Email" [control]="formService.form.controls.email" />
 
     <hb-input-password
       [id]="'password'"
       label="Password"
-      [control]="signUpFormService.form.controls.password" />
+      [control]="formService.form.controls.password" />
 
-    <button tuiButton size="m" type="submit" [disabled]="signUpFormService.form.invalid">
-      Sign up
-    </button>
+    <button tuiButton size="m" type="submit" [disabled]="formService.form.invalid">Sign up</button>
   </form>
 
   <p

@@ -13,6 +13,7 @@ export {
   lowercasePatternValidator,
   numericPatternValidator,
   uppercasePatternValidator,
-} from './form/validators/pattern-validators';
-export { PATTERN_VALIDATOR } from './form/validators/pattern-validators.types';
+} from './form/validation/pattern-validators';
+export { PATTERN_VALIDATOR } from './form/validation/pattern-validators.types';
+export { provideValidationErrors } from './form/validation/validation-errors.provider';
 export type { Theme } from './theme/theme.type';

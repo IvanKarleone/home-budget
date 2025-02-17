@@ -5,10 +5,10 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { routes } from '@app/routes/app.routes';
+import { provideValidationErrors } from '@shared/model';
 import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins';
 
 import { FIREBASE_OPTIONS } from './firebase-options';
-import { provideValidationErrors } from './provide-validation-errors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
