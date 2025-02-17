@@ -1,3 +1,9 @@
 export { DropdownButtonComponent } from './dropdown-button/dropdown-button.component';
+export { InputDateComponent } from './form/input-date/input-date.component';
+export { InputEmailComponent } from './form/input-email/input-email.component';
+export { InputNumberComponent } from './form/input-number/input-number.component';
+export { InputPasswordComponent } from './form/input-password/input-password.component';
+export { InputTextComponent } from './form/input-text/input-text.component';
+export { SelectComponent } from './form/select/select.component';
 export { LinkComponent } from './link/link.component';
 export { PaginationListComponent } from './pagination-list/pagination-list.component';

@@ -1,9 +1,8 @@
-import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TuiButton, TuiError, TuiIcon, TuiTextfield } from '@taiga-ui/core';
-import { TuiFieldErrorPipe, TuiPassword } from '@taiga-ui/kit';
+import { InputEmailComponent, InputPasswordComponent, InputTextComponent } from '@shared/ui';
+import { TuiButton } from '@taiga-ui/core';
 import { TuiInputModule } from '@taiga-ui/legacy';
 
 import { SignUpFormService } from '../model/sign-up-form.service';
@@ -15,12 +14,9 @@ import { SignUpFormService } from '../model/sign-up-form.service';
     ReactiveFormsModule,
     TuiInputModule,
     TuiButton,
-    AsyncPipe,
-    TuiError,
-    TuiFieldErrorPipe,
-    TuiPassword,
-    TuiIcon,
-    TuiTextfield,
+    InputTextComponent,
+    InputEmailComponent,
+    InputPasswordComponent,
   ],
   templateUrl: './sign-up.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

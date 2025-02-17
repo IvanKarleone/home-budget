@@ -1,0 +1,16 @@
+<tui-textfield>
+  <label tuiLabel [for]="id()">{{ label() }}</label>
+
+  <input
+    tuiTextfield
+    [tuiAutoFocus]="autofocus()"
+    [id]="id()"
+    [type]="type()"
+    [formControl]="control()" />
+
+  @if (type() === 'password') {
+    <tui-icon tuiPassword />
+  }
+</tui-textfield>
+
+<tui-error [formControl]="control()" [error]="[] | tuiFieldError | async" />
