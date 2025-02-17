@@ -3,7 +3,7 @@
 <ng-template #dropdown let-close>
   <tui-data-list class="w-28">
     <tui-opt-group>
-      <a tuiOption routerLink="/">Profile</a>
+      <!--      <a tuiOption [routerLink]="['profile']" class="pointer-events-none">Profile</a>-->
       <button tuiOption type="button">
         <hb-switch-theme (switchTheme)="close()" />
       </button>
@@ -12,6 +12,7 @@
       @if (isMobileBreakpoint()) {
         <a tuiOption [routerLink]="['sign-up']">Sign up</a>
       }
+
       <a tuiOption [routerLink]="['sign-in']">Sign in</a>
     </tui-opt-group>
   </tui-data-list>
