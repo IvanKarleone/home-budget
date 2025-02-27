@@ -34,18 +34,4 @@ import { SignUpFormService } from '../model/sign-up-form.service';
 })
 export class SignUpComponent {
   protected readonly formService = inject(SignUpFormService);
-
-  constructor() {
-    setInterval(() => {
-      console.log(this.formService.form.controls.password.errors);
-    }, 2000);
-  }
-
-  signUp(): void {
-    const { name, email, password } = this.formService.getValue();
-
-    console.log(name);
-    console.log(email);
-    console.log(password);
-  }
 }
