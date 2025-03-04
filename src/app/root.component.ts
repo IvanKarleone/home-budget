@@ -16,7 +16,7 @@ import { MenuComponent } from './ui/menu/menu.component';
   },
 })
 export class RootComponent {
-  private readonly themeStorage = inject(ThemeStorageService);
+  readonly #themeStorage = inject(ThemeStorageService);
 
-  readonly theme = computed<Theme>(() => (this.themeStorage.isDarkMode() ? 'dark' : 'light'));
+  readonly theme = computed<Theme>(() => (this.#themeStorage.isDarkMode() ? 'dark' : 'light'));
 }
