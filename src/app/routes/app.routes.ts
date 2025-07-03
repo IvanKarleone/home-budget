@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('@pages/sign-up').then(m => m.SignUpComponent),
   },
   {
+    path: 'sign-in',
+    loadComponent: () => import('@pages/sign-in').then(m => m.SignInComponent),
+  },
+  {
     path: 'user',
     loadChildren: () => import('./user.routes').then(m => m.routes),
   },
